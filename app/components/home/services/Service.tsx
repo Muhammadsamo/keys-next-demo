@@ -84,14 +84,14 @@ const Service = ({ serviceData }: ServiceProps) => {
             {services.map((service, idx) => (
               <li
                 className={`service${isMobile && openIdx === idx ? ' active' : ''}`}
-                key={service.service || service.title}
+                key={service.service || service.service}
                 data-lag={(0.2 + idx * 0.1).toFixed(1)}
                 onMouseEnter={!isMobile ? () => setIsServiceHovered(true) : undefined}
                 onMouseLeave={!isMobile ? () => setIsServiceHovered(false) : undefined}
                 onClick={isMobile ? () => setOpenIdx(openIdx === idx ? null : idx) : undefined}
                 style={isMobile ? { cursor: 'pointer' } : {}}
               >
-                <h3>{service.service || service.title}</h3>
+                <h3>{service.service || service.service}</h3>
                 <span className={isMobile ? (openIdx === idx ? 'open' : 'closed') : ''}>
                   {service.description}
                 </span>

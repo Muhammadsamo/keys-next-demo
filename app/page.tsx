@@ -199,6 +199,5 @@ const options = { next: { revalidate: 120 } };
 export default async function HomeRoute() {
    const homeData = await client.fetch<HomeData['homeData']>(HOMEPAGE_QUERY, {}, options);
 
-   console.log('homeData: ', homeData);
   return <Home homeData={homeData} />;
 }
