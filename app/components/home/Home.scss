@@ -1,0 +1,27 @@
+@use '../../styles/abstracts/variables' as *;
+.h-container{
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    position: relative;
+    // padding: 0 80px;
+    align-items: start;
+    // grid-template-areas: 'stack';
+    background-color: $primary-color;
+    overflow: visible;
+}
+// .h-container > * {
+//     grid-area: stack;
+// }
+/* Make sure Hero really fills one screen */
+.hero-section {
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .about-section{
+    position: relative;
+    z-index: 3;
+    height: 100vh;
+  }
+  

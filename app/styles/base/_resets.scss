@@ -1,0 +1,37 @@
+@use '../abstracts/variables.scss' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: auto;
+  width: 100%;
+  background-color: $primary-color;
+}
+
+body {
+  font-family: $font-stack; // now accessible
+  background-color: $secondary-color; // now accessible without namespace
+  color: $text-color;
+  // line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 1250px) {
+  .smooth-content {
+    padding-top: 100px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .smooth-content {
+    padding-top: 76px;
+  }
+}

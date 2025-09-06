@@ -1,0 +1,427 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.a-main-wrapper {
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: $text-color;
+    z-index: 2;
+
+    // scale:0;
+    // contain: paint;
+    // transform: translateY(200vh);
+    // top: 200vh;
+    .spiny {
+        width: 62.5vw;
+        height: 62.5vw;
+        position: absolute;
+        top: 29vw;
+        left: -32vw;
+        z-index: 2;
+
+        svg {
+            width: 100%;
+            height: 100%;
+
+            path {
+                stroke: #00000000;
+            }
+        }
+    }
+
+    .about-wrapper {
+        display: flex;
+        padding: 15.1vw 4.1vw 2.0vw;
+        min-height: 100vh;
+        height: auto;
+        width: 100%;
+
+
+
+        .a-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .a-left {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                align-items: start;
+                height: 100%;
+
+                .a-heading {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+
+                    .a-sub {
+                        color: $primary-color;
+                        @include s-responsive-font(16, 24);
+                        margin-bottom: 2.1vw;
+                        font-weight: 500;
+                    }
+
+                    .a-main h2 span {
+                        @include xl-responsive-font(64, 120);
+                        font-weight: 400;
+
+                        &.mute {
+                            color: $muted-text-color
+                        }
+
+                        &.color {
+                            color: $primary-blue;
+                        }
+                    }
+                }
+            }
+
+            .a-right {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                // height: 100%;
+                margin-bottom: auto;
+
+                .a-description {
+                    margin-top: 10.29vw;
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: end;
+                    width: 100%;
+                    height: 100%;
+
+                    span {
+                        color: $primary-color;
+                        @include s-responsive-font(16, 24);
+                        display: block;
+                        margin-bottom: 1em;
+                        /* or use 16px, or whatever spacing you want */
+                        font-weight: 400;
+                        font-family: $body-text;
+                    }
+
+                    span:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+
+                .a-years {
+                    flex-direction: column;
+                    display: flex;
+                    height: min-content;
+
+                    .a-numbers {
+                        display: flex;
+                        align-items: center;
+                        height: min-content;
+                        padding-bottom: 3.33vw;
+                        width: max-content;
+
+                        .a-number {
+                            height: min-content;
+
+                            p {
+                                @include xxxl-responsive-font(150, 220);
+                                font-weight: 300;
+                                color: $primary-blue;
+                                height: min-content;
+                                display: block;
+                                line-height: 1;
+                            }
+                        }
+
+                        .a-icon p {
+                            font-size: 2.6vw;
+                            color: $primary-blue;
+                            height: min-content;
+                            line-height: 1;
+                        }
+                    }
+
+                    .year-tag {
+                        padding-top: 1.25vw;
+                        border-top: 1px solid $muted-text-color;
+                        width: max-content;
+
+                        p {
+                            @include s-responsive-font(16, 24);
+                            color: $primary-blue;
+                            line-height: 1;
+                            width: max-content;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+}
+
+@media screen and (max-width: 1250px) {
+    .a-main-wrapper {
+        .spiny {
+            width: 80.5vw;
+            height: 80.5vw;
+            position: absolute;
+            top: 60vw;
+            left: -40vw;
+            z-index: 2;
+
+            svg {
+                width: 100%;
+                height: 100%;
+
+                path {
+                    stroke: #00000000;
+                }
+            }
+        }
+
+        .about-wrapper {
+            padding: 8vw 40px;
+
+            .a-content {
+                flex-direction: column;
+                align-items: start;
+
+                .a-left {
+                    flex: 0;
+
+                    .a-heading {
+                        .a-sub {
+                            color: $primary-color;
+                            font-size: 20px;
+                            margin-bottom: 20px;
+                            font-weight: 500;
+                        }
+
+                        .a-main h2 span {
+                            font-size: clamp(40px, 6.4vw, 100px);
+                            font-weight: 400;
+
+                            &.mute {
+                                color: $muted-text-color
+                            }
+
+                            &.color {
+                                color: $primary-blue;
+                            }
+                        }
+                    }
+                }
+
+                .a-right {
+                    flex: 0;
+
+                    .a-description {
+                        margin-top: 32px;
+                        justify-content: start;
+
+                        span {
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .a-main-wrapper {
+        .spiny {
+            width: 80.5vw;
+            height: 80.5vw;
+            position: absolute;
+            top: 80vw;
+            left: -40vw;
+            z-index: 2;
+
+            svg {
+                width: 100%;
+                height: 100%;
+
+                path {
+                    stroke: #00000000;
+                }
+            }
+        }
+
+        .about-wrapper {
+            padding: 100px 20px 0;
+
+            .a-content {
+                flex-direction: column;
+                align-items: start;
+
+                .a-left {
+                    flex: 0;
+
+                    .a-heading {
+                        .a-sub {
+                            color: $primary-color;
+                            font-size: 20px;
+                            margin-bottom: 20px;
+                            font-weight: 400;
+                        }
+
+                        .a-main h2 span {
+                            font-size: clamp(28px, 9.6vw, 70px);
+                            font-weight: 400;
+
+                            &.mute {
+                                color: $muted-text-color
+                            }
+
+                            &.color {
+                                color: $primary-blue;
+                            }
+                        }
+                    }
+                }
+
+                .a-right {
+                    flex: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .a-main-wrapper {
+        .spiny {
+            width: 90.5vw;
+            height: 90.5vw;
+            position: absolute;
+            top: auto;
+            bottom: -30vh;
+            left: -40vw;
+            z-index: 2;
+
+            svg {
+                width: 100%;
+                height: 100%;
+
+                path {
+                    stroke: #00000000;
+                }
+            }
+        }
+
+        .about-wrapper {
+            padding: 100px 20px 200px;
+
+            .a-content {
+                flex-direction: column;
+                align-items: start;
+
+                .a-left {
+                    flex: 0;
+
+                    .a-sub {
+                        color: $primary-color;
+                        font-size: 20px;
+                        margin-bottom: 20px;
+                        font-weight: 400;
+                    }
+
+                    .a-main h2 span {
+                        font-size: clamp(40px, 6.4vw, 100px);
+                        font-weight: 400;
+
+                        &.mute {
+                            color: $muted-text-color
+                        }
+
+                        &.color {
+                            color: $primary-blue;
+                        }
+                    }
+                }
+
+                .a-right {
+                    flex: 0;
+                    .a-description {
+                        margin-top: 32px;
+                        justify-content: start;
+
+                        span {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .a-main-wrapper {
+        .spiny {
+            width: 98.5vw;
+            height: 98.5vw;
+            position: absolute;
+            // top: 80vh;
+            left: -40vw;
+            z-index: 2;
+
+            svg {
+                width: 100%;
+                height: 100%;
+
+                path {
+                    stroke: #00000000;
+                }
+            }
+        }
+
+        .about-wrapper {
+            padding: 100px 20px 200px;
+
+            .a-content {
+                flex-direction: column;
+                align-items: start;
+
+                .a-left {
+                    flex: 0;
+
+                    .a-heading {
+                        .a-sub {
+                            color: $primary-color;
+                            font-size: 20px;
+                            margin-bottom: 20px;
+                            font-weight: 500;
+                        }
+
+                        .a-main h2 span {
+                            font-size: clamp(40px, 6.4vw, 100px);
+                            font-weight: 400;
+
+                            &.mute {
+                                color: $muted-text-color
+                            }
+
+                            &.color {
+                                color: $primary-blue;
+                            }
+                        }
+                    }
+                }
+
+                .a-right {
+                    flex: 0;
+                }
+            }
+        }
+    }
+}

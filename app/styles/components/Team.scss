@@ -1,0 +1,420 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+.t-container{
+    width: 100%;
+    display: flex;
+    height: auto;
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    background-color: $primary-color;
+    .t-wrapper{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 6.46vw 4.16vw;
+        min-height: 100vh;
+        .t-header{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: 6.4vw;
+            align-items: center;
+            .t-heading{
+                display: flex;
+                justify-content: center;
+                margin-bottom: 2.6vw;
+                h4{
+                    text-align: center;
+                    line-height: 0.7;
+                    @include m-responsive-font(24, 60);
+                    font-weight: 400;
+                    color: $text-color;
+                    text-transform: uppercase;
+                }
+
+            }
+            .t-desc{
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                p{
+                    font-family: $body-text;
+                    font-weight: 500;
+                    font-size: 18px;
+                    width: 57%;
+                    text-align: center;
+                }
+            }
+        }
+        .bot-content{
+            display: flex;
+            width: 100%;
+            height: auto;
+            margin: auto;
+            .left{
+                display: flex;
+                align-items: start;
+                flex: 1;
+                .t-profile{
+                    flex-direction: column;
+                    display: flex;
+                    margin-left: auto;
+                    margin-right: 7.2vw;
+                    .t-img{
+                        height: 23.22vw;
+                        width: 23.22vw;
+                        background-color: aliceblue;
+                        border-radius: 8px;
+                        margin-bottom: 24px;
+                        overflow: hidden;
+                        position: relative;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+                    .profile-text{
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        .name{
+                            margin-bottom: 12px;
+                            h5{
+                                font-size: clamp(18px, 1.25vw, 40px);
+                                font-weight: 600;
+                                color: $text-color;
+                                line-height: 0.7;
+                            }
+                        }
+                        .role{
+                            p{
+                                font-size: 16px;
+                                color: $accent-color;
+                                font-family: $body-text;
+                                font-weight: 300;
+                            }
+                        }
+                    }
+                }
+            }
+            .right{
+                flex: 1;
+                position: relative;
+                .t-indicator{
+                    display: none;
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    .drag-img{
+                      width: 30px;
+                      height: auto;
+                      img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                      }
+                    }
+                    p{
+                      font-size: 16px;
+                      color: $primary-pink;
+                    }
+                  }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .t-container{
+    width: 100%;
+    display: flex;
+    height: auto;
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    background-color: $primary-color;
+    .t-wrapper{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 80px 40px;
+        min-height: 100vh;
+        .t-header{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: 40px;
+            align-items: start;
+            .t-heading{
+                display: flex;
+                justify-content: start;
+                margin-bottom: 40px;
+                align-items: center;
+                h4{
+                    text-align: left;
+                    line-height: 0.7;
+                    font-size: 40px;
+                    font-weight: 400;
+                    color: $text-color;
+                    text-transform: uppercase;
+                }
+
+            }
+            .t-desc{
+                display: flex;
+                width: 100%;
+                justify-content: start;
+                p{
+                    font-family: $body-text;
+                    font-weight: 500;
+                    font-size: 18px;
+                    width: 100%;
+                    text-align: left;
+                }
+            }
+        }
+        .bot-content{
+            display: flex;
+            width: 100%;
+            height: auto;
+            flex-direction: column;
+            align-items: start;
+            .left{
+                display: flex;
+                align-items: start;
+                flex: 1;
+                width: 100%;
+                margin-bottom: 40px;
+                .t-profile{
+                    flex-direction: column;
+                    display: flex;
+                    margin-left: 0;
+                    margin-right: 0;
+                    width: 100%;
+                    .t-img{
+                        height: 600px;
+                        width: 100%;
+                        background-color: aliceblue;
+                        border-radius: 8px;
+                        margin-bottom: 24px;
+                        overflow: hidden;
+                        position: relative;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+                    .profile-text{
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        .name{
+                            margin-bottom: 16px;
+                            h5{
+                                font-size: 40px;
+                                font-weight: 600;
+                                color: $text-color;
+                                line-height: 0.7;
+                            }
+                        }
+                        .role{
+                            p{
+                                font-size: 24px;
+                                color: $accent-color;
+                                font-family: $body-text;
+                                font-weight: 300;
+                            }
+                        }
+                    }
+                }
+            }
+            .right{
+                flex: 1;
+                width: 100%;
+                .t-indicator{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    position: absolute;
+                    bottom: -15%;
+                    left: 50%;
+                    z-index: 4;
+                    transform: translateX(-50%);
+                    .drag-img{
+                      width: 30px;
+                      height: auto;
+                      img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                      }
+                    }
+                    p{
+                      font-size: 16px;
+                      color: $text-color;
+                      width: 100%;
+                      text-align: center;
+                      margin-top: 8px;
+                      font-weight: 600;
+                    }
+                  }
+                
+            }
+        }
+    }
+}
+}
+@media screen and (max-width: 900px) {
+    .t-container{
+    width: 100%;
+    display: flex;
+    height: auto;
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    background-color: $primary-color;
+    .t-wrapper{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 80px 20px;
+        min-height: 100vh;
+        .t-header{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: 32px;
+            align-items: start;
+            .t-heading{
+                display: flex;
+                justify-content: start;
+                margin-bottom: 32px;
+                align-items: center;
+                h4{
+                    text-align: left;
+                    line-height: 0.7;
+                    font-size: clamp(24px, 6.4vw, 40px);
+                    font-weight: 400;
+                    color: $text-color;
+                    text-transform: uppercase;
+                }
+
+            }
+            .t-desc{
+                display: flex;
+                width: 100%;
+                justify-content: start;
+                p{
+                    font-family: $body-text;
+                    font-weight: 500;
+                    font-size: 16px;
+                    width: 100%;
+                    text-align: left;
+                }
+            }
+        }
+        .bot-content{
+            display: flex;
+            width: 100%;
+            height: auto;
+            flex-direction: column;
+            align-items: start;
+            .left{
+                display: flex;
+                align-items: start;
+                flex: 1;
+                width: 100%;
+                margin-bottom: 32px;
+                .t-profile{
+                    flex-direction: column;
+                    display: flex;
+                    margin-left: 0;
+                    margin-right: 0;
+                    width: 100%;
+                    .t-img{
+                        height: 350px;
+                        width: 100%;
+                        background-color: rgb(0, 0, 0);
+                        border-radius: 8px;
+                        margin-bottom: 24px;
+                        overflow: hidden;
+                        position: relative;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+                    .profile-text{
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        .name{
+                            margin-bottom: 12px;
+                            h5{
+                                font-size: 16px;
+                                font-weight: 600;
+                                color: $text-color;
+                                line-height: 0.7;
+                            }
+                        }
+                        .role{
+                            p{
+                                font-size: 14px;
+                                color: $accent-color;
+                                font-family: $body-text;
+                                font-weight: 300;
+                            }
+                        }
+                    }
+                }
+            }
+            .right{
+                flex: 1;
+                width: 100%;
+                .t-indicator{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    position: absolute;
+                    bottom: -40%;
+                    left: 50%;
+                    z-index: 4;
+                    transform: translateX(-50%);
+                    .drag-img{
+                      width: 30px;
+                      height: auto;
+                      img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                      }
+                    }
+                    p{
+                      font-size: 16px;
+                    }
+                  }
+            }
+        }
+    }
+}
+}

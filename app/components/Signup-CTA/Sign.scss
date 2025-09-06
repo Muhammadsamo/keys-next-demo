@@ -1,0 +1,30 @@
+@use '../../styles/abstracts/variables.scss' as *;
+
+.sign-cta {
+    .cta-button {
+        background-color: $alt-section2;
+        color: $muted-text-color;
+        border: none;
+        border-radius: 8px;
+        padding: 16px 32px;
+        font-size: 16px;
+        font-weight: 400;
+        border: 2px solid $primary-blue;
+        font-weight: 400;
+        font-family: $font-stack;
+        // box-shadow: 0 2px 12.2px 1px #d1495baf;
+        transition: all 0.3s ease-out 0.5ms;
+        // opacity: 0.4;
+        pointer-events: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $alt-section;
+            color: $text-color;
+            border: 2px solid $primary-blue;
+            box-shadow: 0 2px 12.2px 0px #ffffff4f;
+        }
+
+        display: flex;
+    }
+}

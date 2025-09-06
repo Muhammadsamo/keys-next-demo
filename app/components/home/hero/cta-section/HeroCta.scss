@@ -1,0 +1,49 @@
+.hc-wrapper {
+    min-height: 100vh;
+    height: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    position: relative;
+    padding: 4.2vw 13.0vw;
+    z-index: 0;
+
+    @media screen and (max-width: 1250px) {
+        padding: 0px 40px;
+        align-items: center;
+    }
+
+    @media screen and (max-width: 900px) {
+        padding: 0px 20px;
+    }
+
+    .hc-bg {
+        width: 100vw;
+        height: 100%;
+        position: absolute;
+        // overflow: hidden;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 84vw;
+            height: 96vw;
+            object-fit: contain;
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+
+            @media screen and (max-width: 900px) {
+            width: 98.9vw;
+            height: auto;
+            bottom: 70%;
+            left: 50%;
+            }
+        }
+    }
+}

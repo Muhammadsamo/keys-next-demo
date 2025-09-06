@@ -1,95 +1,204 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+// import { SanityDocument } from "next-sanity";
+import Home from "./components/home/Home";
+import { client } from "./sanity/client";
 
-export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+const HOMEPAGE_QUERY = `*[_type == "homepage"][0]{
+  header{
+    headerLogo{
+      ...,
+      "url": asset->url
+    },
+    latestEvent,
+    buttonText
+  },
+  heroSection{
+    heroHeadings,
+    eventBannerPill,
+    eventBannerHeading,
+    eventBannerDescription,
+    eventBannerButtonText,
+    eventBannerImage{
+      ...,
+      "url": asset->url
+    }
+  },
+  aboutSection{
+    headingSmall,
+    headingMain,
+    headingHighlight,
+    description[],
+  },
+  ourVisionSection{
+    headingSmall,
+    headingMain,
+    description[],
+  },
+  services{
+    heading,
+    description,
+    yearsOfExperience{
+      number,
+      text
+    },
+    serviceItems[]{
+      service,
+      description
+    }
+  },
+  teamSection{
+    heading,
+    description,
+    founderProfile{
+      name,
+      "slug": slug.current,
+      imgage{
+        ...,
+        "url": asset->url
+      },
+      role
+    },
+    teamMembers[]->{
+      name,
+      "slug": slug.current,
+      image{
+        ...,
+        "url": asset->url
+      },
+      role
+    }
+  },
+  followUs{
+    heading,
+    headingHighlight,
+    description,
+    socialLinks[]{
+      socialPlatform,
+      href,
+      icon{
+        ...,
+        "url": asset->url
+      }
+    }
+  },
+  footerSection{
+    taglines[]{
+      text,
+      highlightedWord
+    },
+    socialIcons[]{
+      socialPlatform,
+      href,
+      icon{
+        ...,
+        "url": asset->url
+      }
+    },
+    contactDetails[]{
+      heading,
+      contactInfo,
+      icon{
+        ...,
+        "url": asset->url
+      }
+    },
+    footerLogo{
+      ...,
+      "url": asset->url
+    },
+    copyright,
+    footerLinks[] {
+      label,
+      target
+    }
+  }
+}`;
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+export interface HomeData {
+  homeData?: {
+    header?: {
+      headerLogo?: { url?: string };
+      latestEvent?: string;
+      buttonText?: string;
+    };
+    heroSection?: {
+      heroHeadings?: string[];
+      eventBannerPill?: string;
+      eventBannerHeading?: string;
+      eventBannerDescription?: string;
+      eventBannerButtonText?: string;
+      eventBannerImage?: { url?: string };
+    };
+    aboutSection?: {
+      headingSmall?: string;
+      headingMain?: string;
+      headingHighlight?: string;
+      description?: string[];
+    };
+    ourVisionSection?: {
+      headingSmall?: string;
+      headingMain?: string;
+      description?: string[];
+    };
+    services?: {
+      heading?: string;
+      description?: string;
+      yearsOfExperience?: { number?: number; text?: string };
+      serviceItems?: Array<{ service?: string; description?: string }>;
+    };
+    teamSection?: {
+      heading?: string;
+      description?: string;
+      founderProfile?: {
+        name?: string;
+        slug?: string;
+        imgage?: { url?: string };
+        role?: string;
+      };
+      teamMembers?: Array<{
+        name?: string;
+        slug?: string;
+        imgage?: { url?: string };
+        role?: string;
+      }>;
+    };
+    followUs?: {
+      heading?: string;
+      headingHighlight?: string;
+      description?: string;
+      socialLinks?: Array<{
+        socialPlatform?: string;
+        href?: string;
+        icon?: { url?: string };
+      }>;
+    };
+    footerSection?: {
+      taglines?: Array<{ text?: string; highlightedWord?: string }>;
+      socialIcons?: Array<{
+        socialPlatform?: string;
+        href?: string;
+        icon?: { url?: string };
+      }>;
+      contactDetails?: Array<{
+        heading?: string;
+        contactInfo?: string;
+        icon?: { url?: string };
+      }>;
+      footerLogo?: { url?: string };
+      copyright?: string;
+      footerLinks?: Array<{
+        label?: string;
+        target?: string;
+      }>;
+    };
+  };
+}
+
+
+const options = { next: { revalidate: 120 } };
+
+export default async function HomeRoute() {
+   const homeData = await client.fetch<HomeData['homeData']>(HOMEPAGE_QUERY, {}, options);
+
+   console.log('homeData: ', homeData);
+  return <Home homeData={homeData} />;
 }

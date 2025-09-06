@@ -1,0 +1,51 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @mixin h1($min, $max) {
+    font-size: clamp(#{$min}px, 4.167vw, #{$max}px);
+  }
+  @mixin xxxl-responsive-font($min, $max) {
+    font-size: clamp(#{$min}px, 10.4vw, #{$max}px);
+  }
+  @mixin xxl-responsive-font($min, $max) {
+    font-size: clamp(#{$min}px, 6.7vw, #{$max}px);
+  }
+  @mixin xl-responsive-font($min, $max) {
+    font-size: clamp(#{$min}px, 5.2vw, #{$max}px);
+  }
+  @mixin l-responsive-font($min, $max) {
+    font-size: clamp(#{$min}px, 2vw, #{$max}px);
+  }
+  @mixin m-responsive-font($min, $max) {
+    font-size: clamp(#{$min}px, 1.667vw, #{$max}px);
+  }
+  @mixin s-responsive-font($min, $max) {
+    font-size: clamp(#{$min}px, 1.042vw, #{$max}px);
+  }
+
+    //1000px - 375px 
+    @mixin mob-h1($min, $max) {
+      font-size: clamp(#{$min}px, 9.6vw, #{$max}px);
+    }
+    @mixin mob-xxxl-responsive-font($min, $max) {
+      font-size: clamp(#{$min}px, 10.4vw, #{$max}px);
+    }
+    @mixin mob-xxl-responsive-font($min, $max) {
+      font-size: clamp(#{$min}px, 6.7vw, #{$max}px);
+    }
+    @mixin mob-xl-responsive-font($min, $max) {
+      font-size: clamp(#{$min}px, 5.2vw, #{$max}px);
+    }
+    @mixin mob-l-responsive-font($min, $max) {
+      font-size: clamp(#{$min}px, 2vw, #{$max}px);
+    }
+    @mixin mob-m-responsive-font($min, $max) {
+      font-size: clamp(#{$min}px, 1.667vw, #{$max}px);
+    }
+    @mixin mob-s-responsive-font($min, $max) {
+      font-size: clamp(#{$min}px, 1.042vw, #{$max}px);
+    }
+  

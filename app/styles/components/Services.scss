@@ -1,0 +1,652 @@
+@use '../../styles/abstracts/variables' as *;
+@use '../../styles/abstracts/mixins' as *;
+
+.s-container {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    padding: 7.5vw 4.1vw;
+    background-color: $primary-color;
+    position: relative;
+
+    .s-graphic {
+        width: 14.89vw;
+        height: 24vw;
+        overflow: visible;
+        position: absolute;
+        top: 20vw;
+        right: 10vw;
+        transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .s-wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .s-header {
+            display: flex;
+            // flex-direction: column;
+            margin-bottom: 4.79vw;
+            position: relative;
+            z-index: 1;
+
+            .s-left {
+                flex: 1;
+
+                .s-heading {
+                    margin-bottom: 3.75vw;
+
+                    h2 {
+                        @include m-responsive-font(24, 40);
+                        font-weight: 500;
+                        color: $text-color;
+                        text-transform: uppercase;
+                        display: flex;
+                        align-items: center;
+
+                        span.dot {
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 50%;
+                            background-color: $accent-color;
+                            display: block;
+                            margin-right: 16px;
+                        }
+                    }
+                }
+
+                .s-description {
+                    p {
+                        @include s-responsive-font(18, 28);
+                        font-weight: 300;
+                        color: $text-color;
+                    }
+                }
+            }
+
+            .s-right {
+                flex: 1;
+                justify-content: right;
+                align-items: center;
+                display: flex;
+
+                .a-years {
+                    flex-direction: column;
+                    display: flex;
+                    height: min-content;
+                    width: min-content;
+
+                    .a-numbers {
+                        display: flex;
+                        align-items: center;
+                        height: min-content;
+                        padding-bottom: 1.25vw;
+                        width: max-content;
+
+                        .a-number {
+                            height: min-content;
+
+                            p {
+                                @include xxl-responsive-font(60, 160);
+                                font-weight: 400;
+                                color: $accent-color;
+                                height: min-content;
+                                display: block;
+                                line-height: 0.7;
+                            }
+                        }
+
+                        .a-icon p {
+                            font-size: 2.6vw;
+                            color: $accent-color;
+                            height: min-content;
+                            line-height: 1;
+                        }
+                    }
+
+                    .year-tag {
+                        padding-top: 1.25vw;
+                        border-top: 1px solid $muted-text-color;
+                        width: max-content;
+
+                        p {
+                            @include s-responsive-font(16, 24);
+                            color: $accent-color;
+                            line-height: 1;
+                            width: max-content;
+                        }
+                    }
+                }
+            }
+        }
+
+        .s-list {
+            display: flex;
+
+            .services {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                .service {
+                    display: flex;
+                    height: min-content;
+                    position: relative;
+                    align-items: start;
+                    width: 100%;
+                    transition: opacity 0.3s ease;
+
+                    h3 {
+                        font-size: clamp(30px, 2.5vw, 80px);
+                        color: $muted-text-color;
+                        font-weight: 300;
+                        width: max-content;
+                        text-wrap: nowrap;
+                        flex: 1.5;
+                        transition: color 0.5s ease-out 0.5ms;
+                        cursor: default;
+                        margin-bottom: 32px;
+                        line-height: 1;
+                        text-transform: uppercase;
+                    }
+
+                    span {
+                        flex: 1;
+                        opacity: 0;
+                        transition: opacity 0.5s ease-in 0.2ms, transform 0.2s ease-out 0.5ms;
+                        font-size: 18px;
+                        font-weight: 500;
+                        transform: translateX(200%);
+                        color: #F8F8F8;
+                        font-family: $body-text;
+                        display: flex;
+                        justify-content: right;
+
+                    }
+
+                    &:hover {
+                        @media screen and (min-width: 1251px) {
+                            h3 {
+                                color: $text-color;
+                            }
+
+                            span {
+                                opacity: 1;
+                                transform: translateX(0%);
+                            }
+                        }
+                    }
+                }
+
+
+                &:hover .service:not(:hover) {
+                    @media screen and (min-width:1251px) {
+                        opacity: 0.5;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.graphic-faded {
+    opacity: 0.2;
+}
+
+@media screen and (max-width:1250px) {
+    .s-container {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        padding: 100px 40px;
+        background-color: $primary-color;
+        position: relative;
+
+        .s-graphic {
+            width: 14.89vw;
+            height: 24vw;
+            overflow: visible;
+            position: absolute;
+            top: 20vw;
+            right: 10vw;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: none;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .s-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .s-header {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 60px;
+                position: relative;
+                z-index: 1;
+
+                .s-left {
+                    flex: 1;
+                    margin-bottom: 60px;
+
+                    .s-heading {
+                        margin-bottom: 60px;
+
+                        h2 {
+                            font-size: 40px;
+                            font-weight: 500;
+                            color: $text-color;
+                            text-transform: uppercase;
+                            display: flex;
+                            align-items: center;
+
+                            span.dot {
+                                width: 20px;
+                                height: 20px;
+                                border-radius: 50%;
+                                background-color: $accent-color;
+                                display: block;
+                                margin-right: 16px;
+                            }
+                        }
+                    }
+
+                    .s-description {
+                        p {
+                            font-size: 20px;
+                            font-weight: 300;
+                            color: $text-color;
+                            line-height: 1.5;
+                        }
+                    }
+                }
+
+                .s-right {
+                    flex: 1;
+                    justify-content: right;
+                    align-items: center;
+                    display: flex;
+
+                    .a-years {
+                        flex-direction: column;
+                        display: flex;
+                        height: min-content;
+                        width: min-content;
+                        align-items: end;
+
+                        .a-numbers {
+                            display: flex;
+                            align-items: center;
+                            height: min-content;
+                            padding-bottom: 12px;
+                            width: max-content;
+
+                            .a-number {
+                                height: min-content;
+
+                                p {
+                                    font-size: 64px;
+                                    font-weight: 400;
+                                    color: $accent-color;
+                                    height: min-content;
+                                    display: block;
+                                    line-height: 0.7;
+                                }
+                            }
+
+                            .a-icon p {
+                                font-size: 2.6vw;
+                                color: $accent-color;
+                                height: min-content;
+                                line-height: 1;
+                            }
+                        }
+
+                        .year-tag {
+                            padding-top: 12px;
+                            border-top: 1px solid $muted-text-color;
+                            width: max-content;
+
+                            p {
+                                font-size: 16px;
+                                color: $accent-color;
+                                line-height: 1;
+                                width: max-content;
+                                text-align: right;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .s-list {
+                display: flex;
+
+                .services {
+                    list-style: none;
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+
+                    .service {
+                        display: flex;
+                        height: min-content;
+                        position: relative;
+                        align-items: start;
+                        width: 100%;
+                        transition: opacity 0.3s ease;
+                        flex-direction: column;
+                        margin-bottom: 24px;
+
+                        h3 {
+                            font-size: clamp(20px, 4.8vw, 80px);
+                            color: $muted-text-color;
+                            font-weight: 300;
+                            width: max-content;
+                            text-wrap: nowrap;
+                            flex: 1.5;
+                            transition: color 0.5s ease-out 0.5ms;
+                            cursor: default;
+                            margin-bottom: 16px;
+                            line-height: 1;
+                            text-transform: uppercase;
+                        }
+
+                        span {
+                            flex: 1;
+                            opacity: 1;
+                            transition: opacity 0.5s ease-in 0.2ms, transform 0.2s ease-out 0.5ms, scale 0.2s ease-in 0.2ms, max-height 0.2s ease-in 0.2ms;
+                            font-size: 18px;
+                            font-weight: 500;
+                            transform: translateX(0%);
+                            color: #F8F8F8;
+                            font-family: $body-text;
+                            display: flex;
+                            justify-content: right;
+
+                        }
+
+                        // &:hover {
+                        //     h3 {
+                        //         color: $text-color;
+                        //     }
+
+                        //     span {
+                        //         opacity: 1;
+                        //         transform: translateX(0%);
+                        //     }
+                        // }
+                        span.open {
+                            max-height: 600px;
+                            opacity: 1;
+                            overflow: visible;
+                            display: block;
+                            margin-bottom: 16px;
+                            transition-property: max-height, opacity;
+                            transition-duration: 0.7s, 0.3s;
+                            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1), ease;
+                        }
+
+                        span.closed {
+                            max-height: 0;
+                            opacity: 0;
+                            overflow: hidden;
+                            display: block;
+                            margin-bottom: 0;
+                            transition-property: max-height, opacity;
+                            transition-duration: 0.7s, 0.3s;
+                            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1), ease;
+                        }
+                    }
+
+
+                    // &:hover .service:not(:hover) {
+                    //     opacity: 0.5;
+                    // }
+                }
+            }
+        }
+    }
+
+    .graphic-faded {
+        opacity: 0.2;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .s-container {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        padding: 80px 20px;
+        background-color: $primary-color;
+        position: relative;
+
+        .s-graphic {
+            width: 14.89vw;
+            height: 24vw;
+            overflow: visible;
+            position: absolute;
+            top: 20vw;
+            right: 10vw;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: none;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .s-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .s-header {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 40px;
+                position: relative;
+                z-index: 1;
+
+                .s-left {
+                    flex: 1;
+                    margin-bottom: 40px;
+
+                    .s-heading {
+                        margin-bottom: 40px;
+
+                        h2 {
+                            font-size: clamp(24px, 6.4vw, 40px);
+                            font-weight: 500;
+                            color: $text-color;
+                            text-transform: uppercase;
+                            display: flex;
+                            align-items: center;
+
+                            span.dot {
+                                width: 20px;
+                                height: 20px;
+                                border-radius: 50%;
+                                background-color: $accent-color;
+                                display: block;
+                                margin-right: 16px;
+                            }
+                        }
+                    }
+
+                    .s-description {
+                        p {
+                            font-size: 18px;
+                            font-weight: 300;
+                            color: $text-color;
+                            line-height: 1.5;
+                        }
+                    }
+                }
+
+                .s-right {
+                    flex: 1;
+                    justify-content: right;
+                    align-items: center;
+                    display: flex;
+
+                    .a-years {
+                        flex-direction: column;
+                        display: flex;
+                        height: min-content;
+                        width: min-content;
+                        align-items: end;
+
+                        .a-numbers {
+                            display: flex;
+                            align-items: center;
+                            height: min-content;
+                            padding-bottom: 12px;
+                            width: max-content;
+
+                            .a-number {
+                                height: min-content;
+
+                                p {
+                                    font-size: 64px;
+                                    font-weight: 400;
+                                    color: $accent-color;
+                                    height: min-content;
+                                    display: block;
+                                    line-height: 0.7;
+                                }
+                            }
+
+                            .a-icon p {
+                                font-size: 24px;
+                                color: $accent-color;
+                                height: min-content;
+                                line-height: 1;
+                            }
+                        }
+
+                        .year-tag {
+                            padding-top: 12px;
+                            border-top: 1px solid $muted-text-color;
+                            width: max-content;
+
+                            p {
+                                font-size: 16px;
+                                color: $accent-color;
+                                line-height: 1;
+                                width: max-content;
+                                text-align: right;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .s-list {
+                display: flex;
+
+                .services {
+                    list-style: none;
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+
+                    .service {
+                        display: flex;
+                        height: min-content;
+                        position: relative;
+                        align-items: start;
+                        width: 100%;
+                        transition: opacity 0.3s ease;
+                        flex-direction: column;
+                        margin-bottom: 16px;
+
+                        h3 {
+                            font-size: clamp(24px, 6.4vw, 40px);
+                            color: $muted-text-color;
+                            font-weight: 300;
+                            width: 100%;
+                            text-wrap: wrap;
+                            flex: 1.5;
+                            transition: color 0.5s ease-out 0.5ms;
+                            cursor: default;
+                            margin-bottom: 6px;
+                            line-height: 1.2;
+                            text-transform: uppercase;
+                        }
+
+                        span {
+                            flex: 1;
+                            opacity: 1;
+                            transition: opacity 0.5s ease-in 0.2ms, transform 0.2s ease-out 0.5ms, scale 0.2s ease-in 0.2ms, max-height 0.2s ease-in 0.2ms;
+                            font-size: 16px;
+                            font-weight: 500;
+                            transform: translateX(0%);
+                            color: #F8F8F8;
+                            font-family: $body-text;
+                            display: flex;
+                            justify-content: right;
+
+                        }
+
+                        &.active {
+                            h3 {
+                                color: $text-color;
+                            }
+                        }
+                        span.open {
+                            max-height: 600px;
+                            opacity: 1;
+                            overflow: visible;
+                            display: block;
+                            margin-bottom: 16px;
+                            transition-property: max-height, opacity;
+                            transition-duration: 0.7s, 0.3s;
+                            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1), ease;
+                        }
+
+                        span.closed {
+                            max-height: 0;
+                            opacity: 0;
+                            overflow: hidden;
+                            display: block;
+                            margin-bottom: 0;
+                            transition-property: max-height, opacity;
+                            transition-duration: 0.7s, 0.3s;
+                            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1), ease;
+                        }
+                    }
+
+
+                    // &:hover .service:not(:hover) {
+                    //     opacity: 0.5;
+                    // }
+                }
+            }
+        }
+    }
+
+    .graphic-faded {
+        opacity: 0.2;
+    }
+}
