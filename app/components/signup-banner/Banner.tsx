@@ -15,7 +15,7 @@ interface BannerProps {
     eventBannerPill?: string;
     eventBannerHeading?: string;
     eventBannerDescription?: string;
-    eventBannerButton: {
+    eventBannerButton?: {
         textDisabled?: string;
         textActive?: string;
         link?: string;
@@ -76,9 +76,9 @@ const Banner = ({ bannerData }: BannerProps) => {
                     </div>
                     <div className="l-cta">
                         <SignCTA
-                            text={bannerData?.eventBannerButton.textActive || bannerData?.eventBannerButton.textDisabled || 'Coming soon'}
-                            link={bannerData?.eventBannerButton.link}
-                            disabled={!(bannerData?.eventBannerButton.link)}
+                            text={bannerData?.eventBannerButton?.textActive || bannerData?.eventBannerButton?.textDisabled || 'Coming soon'}
+                            link={bannerData?.eventBannerButton?.link}
+                            disabled={!(bannerData?.eventBannerButton?.link)}
                             target="_blank"
                             showIcon={true}
                         />

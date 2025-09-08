@@ -15,7 +15,11 @@ interface HeroProps {
     eventBannerPill?: string;
     eventBannerHeading?: string;
     eventBannerDescription?: string;
-    eventBannerButtonText?: string;
+    eventBannerButton?: {
+        textDisabled?: string;
+        textActive?: string;
+        link?: string;
+    };
     eventBannerImage?: {
       url?: string;
     };

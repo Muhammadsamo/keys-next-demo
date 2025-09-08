@@ -1,5 +1,6 @@
 // import { SanityDocument } from "next-sanity";
 import Home from "./components/home/Home";
+import type { Metadata } from "next";
 import { client } from "./sanity/client";
 
 const HOMEPAGE_QUERY = `*[_type == "homepage"][0]{
@@ -195,4 +196,31 @@ export default async function HomeRoute() {
    const homeData = await client.fetch<HomeData['homeData']>(HOMEPAGE_QUERY, {}, options);
 
   return <Home homeData={homeData} />;
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const homeData = await client.fetch<HomeData['homeData']>(HOMEPAGE_QUERY, {}, { next: { revalidate: 300 } });
+
+  const title = "Keys Live";
+  const description = Array.isArray(homeData?.aboutSection?.description)
+    ? homeData!.aboutSection!.description!.join(' ')
+    : (homeData?.aboutSection?.description as unknown as string) || "";
+  const ogImageUrl = '../public/Favicon-08.png';
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      images: ogImageUrl ? [ogImageUrl] : undefined,
+    },
+    twitter: {
+      card: ogImageUrl ? "summary_large_image" : "summary",
+      title,
+      description,
+      images: ogImageUrl ? [ogImageUrl] : undefined,
+    },
+  };
 }
