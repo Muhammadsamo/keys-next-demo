@@ -6,6 +6,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import React from 'react'
 import Image from 'next/image'
+import SignCTA from '../Signup-CTA/SignCTA'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -14,7 +15,11 @@ interface BannerProps {
     eventBannerPill?: string;
     eventBannerHeading?: string;
     eventBannerDescription?: string;
-    eventBannerButtonText?: string;
+    eventBannerButton: {
+        textDisabled?: string;
+        textActive?: string;
+        link?: string;
+    };
     eventBannerImage?: {
       url?: string;
     };
@@ -70,19 +75,13 @@ const Banner = ({ bannerData }: BannerProps) => {
                         </div>
                     </div>
                     <div className="l-cta">
-                        <button onClick={() => window.open('https://forms.gle/example', '_blank')}>
-                            <div className="l-cta-text">
-                                <p>{bannerData?.eventBannerButtonText || 'Coming soon'}</p>
-                            </div>
-                            <div className="l-cta-icon">
-                                <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M3.89062 9H14.3906" stroke="#1C1C1E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    <path d="M9.14062 3.75L14.3906 9L9.14062 14.25" stroke="#1C1C1E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-
-
-                            </div>
-                        </button>
+                        <SignCTA
+                            text={bannerData?.eventBannerButton.textActive || bannerData?.eventBannerButton.textDisabled || 'Coming soon'}
+                            link={bannerData?.eventBannerButton.link}
+                            disabled={!(bannerData?.eventBannerButton.link)}
+                            target="_blank"
+                            showIcon={true}
+                        />
                     </div>
                 </div>
                 <div className="right">

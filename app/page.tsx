@@ -3,20 +3,16 @@ import Home from "./components/home/Home";
 import { client } from "./sanity/client";
 
 const HOMEPAGE_QUERY = `*[_type == "homepage"][0]{
-  header{
-    headerLogo{
-      ...,
-      "url": asset->url
-    },
-    latestEvent,
-    buttonText
-  },
   heroSection{
     heroHeadings,
     eventBannerPill,
     eventBannerHeading,
     eventBannerDescription,
-    eventBannerButtonText,
+    eventBannerButton {
+      textDisabled,
+      textActive,
+      link,
+    },
     eventBannerImage{
       ...,
       "url": asset->url
@@ -115,17 +111,16 @@ const HOMEPAGE_QUERY = `*[_type == "homepage"][0]{
 
 export interface HomeData {
   homeData?: {
-    header?: {
-      headerLogo?: { url?: string };
-      latestEvent?: string;
-      buttonText?: string;
-    };
     heroSection?: {
       heroHeadings?: string[];
       eventBannerPill?: string;
       eventBannerHeading?: string;
       eventBannerDescription?: string;
-      eventBannerButtonText?: string;
+      eventBannerButton?: {
+        textDisabled?: string;
+        textActive?: string;
+        link?: string;
+      };
       eventBannerImage?: { url?: string };
     };
     aboutSection?: {

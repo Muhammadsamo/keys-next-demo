@@ -14,8 +14,6 @@
         font-family: $font-stack;
         // box-shadow: 0 2px 12.2px 1px #d1495baf;
         transition: all 0.3s ease-out 0.5ms;
-        // opacity: 0.4;
-        pointer-events: none;
         cursor: pointer;
 
         &:hover {
@@ -23,6 +21,11 @@
             color: $text-color;
             border: 2px solid $primary-blue;
             box-shadow: 0 2px 12.2px 0px #ffffff4f;
+        }
+
+        &:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
         }
 
         display: flex;

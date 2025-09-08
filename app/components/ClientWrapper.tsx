@@ -11,7 +11,22 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 const HeaderDataContext = createContext<{
   headerLogo?: { url?: string };
   latestEvent?: string;
-  buttonText?: string;
+  button?: {
+    textDisabled?: string;
+    textActive?: string;
+    btnLink?: string;
+  };
+  // Mobile-specific schema (from CMS)
+  mobileHeading?: string;
+  mobileButton?: {
+    textDisabled?: string;
+    textActive?: string;
+    btnLink?: string;
+  };
+  mobileLinks?: Array<{
+    label?: string;
+    link?: string; // can be hash (e.g. #about) or external URL
+  }>;
 } | null>(null);
 
 // Create context for loading screen data
@@ -40,7 +55,21 @@ export default function ClientWrapper({
   headerData?: {
     headerLogo?: { url?: string };
     latestEvent?: string;
-    buttonText?: string;
+    button?: {
+      textDisabled?: string;
+      textActive?: string;
+      btnLink?: string;
+    };
+    mobileHeading?: string;
+    mobileButton?: {
+      textDisabled?: string;
+      textActive?: string;
+      btnLink?: string;
+    };
+    mobileLinks?: Array<{
+      label?: string;
+      link?: string;
+    }>;
   };
   loadingScreenData?: {
     logo?: { url?: string };

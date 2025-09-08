@@ -83,7 +83,20 @@ const Header = forwardRef<HTMLDivElement, { visible?: boolean }>( (props, ref) =
                 <p>{headerData?.latestEvent || 'Latest Event'}</p>
               </div>
               <div className="h-cta">
-                <SignCTA />
+                {(() => {
+                  const db = headerData?.button;
+                  const hasLink = Boolean(db?.btnLink);
+                  const text = hasLink ? (db?.textActive || db?.textDisabled || 'Learn more') : (db?.textDisabled || 'Coming soon');
+                  return (
+                    <SignCTA
+                      text={text}
+                      link={db?.btnLink}
+                      disabled={!hasLink}
+                      target="_blank"
+                      showIcon={false}
+                    />
+                  );
+                })()}
               </div>
             </div>
           </div>
