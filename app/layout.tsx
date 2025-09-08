@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   description:
     "Keys Live is a cultural heritage initiative by Keys Productions, one of Pakistan’s leading event management and PR companies.",
   icons: {
-    icon: "/favicon-08.png",
-    shortcut: "/favicon-08.png",
-    apple: "/favicon-08.png",
+    icon: "/Favicon-08.png",
+    shortcut: "/Favicon-08.png",
+    apple: "/Favicon-08.png",
     other: {
       rel: "icon",
-      url: "/favicon-08.png",
+      url: "/Favicon-08.png",
     },
   },
 };
