@@ -56,8 +56,6 @@ export default async function RootLayout({
     }`),
   ]);
 
-  console.log("Header Data: ", pageData)
-
   return (
     <html lang="en">
       <body

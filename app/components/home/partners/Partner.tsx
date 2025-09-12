@@ -2,27 +2,40 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
+import Image from 'next/image'
 
-const Partner = () => {
+interface PartnerProps {
+  partnerData?: {
+    heading?: string;
+      partners?: Array<{
+        partnerName?: string;
+        logo?: { url?: string };
+        altText?: string;
+      }>;
+  };
+}
+
+const Partner = ({ partnerData }: PartnerProps) => {
+  if (!partnerData || !partnerData.partners || partnerData.partners.length === 0) return null
   return (
     <div className="partner-section">
       <div className="partner-section__wrapper">
         <h2 className="partner-section__heading">
             <span className='dot'></span> 
-            OUR PARTNERS</h2>
+            {partnerData.heading || 'Our Partners'}</h2>
         <div className="partner-section__row">
           <Marquee speed={40}>
-            <LogoRow count={6} />
+            <LogoRow logos={partnerData.partners} />
           </Marquee>
         </div>
         <div className="partner-section__row">
           <Marquee speed={25}>
-            <LogoRow count={6} />
+            <LogoRow logos={partnerData.partners} />
           </Marquee>
         </div>
         <div>
           <Marquee speed={40}>
-            <LogoRow count={6} />
+            <LogoRow logos={partnerData.partners} />
           </Marquee>
         </div>
       </div>
@@ -30,17 +43,28 @@ const Partner = () => {
   )
 }
 
-const LogoRow = ({ count }: { count: number }) => (
-  <div className="partner-section__logos">
-    {Array.from({ length: count }).map((_, i) => (
-      <div
-        key={i}
-        className="partner-section__logo"
-        style={{ marginRight: i === count - 1 ? 0 : 80 }}
-      />
-    ))}
-  </div>
-)
+const LogoRow = ({ logos }: { logos: { logo?: { url?: string }; altText?: string }[] }) => {
+  const logosWithUrl = logos.filter((p) => Boolean(p.logo?.url))
+  return (
+    <div className="partner-section__logos">
+      {logosWithUrl.map((partner, index) => (
+        <div
+          key={index}
+          className="partner-section__logo"
+          style={{ marginRight: index === logosWithUrl.length - 1 ? 0 : 80 }}
+        >
+          <Image
+            src={partner.logo!.url as string}
+            alt={partner.altText || 'Partner logo'}
+            width={120}
+            height={60}
+            style={{ width: 'auto', height: 'auto', maxHeight: 60, objectFit: 'contain' }}
+          />
+        </div>
+      ))}
+    </div>
+  )
+}
 
 // Classic infinite GSAP marquee with modular wrapping and two copies
 const Marquee = ({ children, speed }: { children: React.ReactNode; speed: number }) => {

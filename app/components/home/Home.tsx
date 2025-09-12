@@ -13,6 +13,7 @@ import Footer from '../footer/Footer';
 import './Home.scss';
 import Vision from './vision/Vision';
 import { HomeData } from '@/app/page';
+import Partner from './partners/Partner';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,6 +79,9 @@ export default function Home({ homeData }: HomeData) {
       <Service serviceData={homeData?.services} />
       <Team teamData={homeData?.teamSection} />
       <Events eventsData={homeData?.followUs} />
+      {/* if partnerSection.showPartnerSection is true render partner section*/}
+      {homeData?.partnerSection?.showPartnerSection === true && <Partner partnerData={homeData?.partnerSection} />}
+
       <Footer footerData={homeData?.footerSection} />
     </div>
   );

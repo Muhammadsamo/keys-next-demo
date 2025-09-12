@@ -77,6 +77,18 @@ const HOMEPAGE_QUERY = `*[_type == "homepage"][0]{
       }
     }
   },
+  partnerSection{
+    showPartnerSection,
+    heading,
+    partners[] {
+      partnerName,
+      logo{
+        ...,
+        "url": asset->url
+      },
+      altText,
+    },
+  },
   footerSection{
     taglines[]{
       text,
@@ -167,6 +179,15 @@ export interface HomeData {
         icon?: { url?: string };
       }>;
     };
+    partnerSection?: {
+      showPartnerSection?: boolean;
+      heading?: string;
+      partners?: Array<{
+        partnerName?: string;
+        logo?: { url?: string };
+        altText?: string;
+      }>;
+    };
     footerSection?: {
       taglines?: Array<{ text?: string; highlightedWord?: string }>;
       socialIcons?: Array<{
@@ -194,6 +215,8 @@ const options = { next: { revalidate: 120 } };
 
 export default async function HomeRoute() {
    const homeData = await client.fetch<HomeData['homeData']>(HOMEPAGE_QUERY, {}, options);
+
+   console.log("homeData: ", homeData)
 
   return <Home homeData={homeData} />;
 }
