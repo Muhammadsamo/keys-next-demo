@@ -100,7 +100,8 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.mobile-header-logo svg {
+.mobile-header-logo svg,
+.mobile-header-logo img {
   height: 38px;
   width: auto;
   @media screen and (max-width:768px) {
