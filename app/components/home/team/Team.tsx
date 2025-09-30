@@ -44,8 +44,8 @@ const Team = ({ teamData }: TeamProps) => {
                                 <Image 
                                     src={teamData?.founderProfile?.imgage?.url || "/team/hasan-daudpota.webp"} 
                                     alt="ceo image" 
-                                    width={200} 
-                                    height={200} 
+                                    width={500} 
+                                    height={500} 
                                 />
                             </div>
                             <div className="profile-text">

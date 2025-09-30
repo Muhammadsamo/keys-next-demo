@@ -178,8 +178,8 @@ const Footer = ({ footerData }: FooterProps) => {
                       <Image 
                         src={socialIcon.icon?.url || "/footer/darkinsta.svg"} 
                         alt={`${socialIcon.socialPlatform || 'social'} logo`} 
-                        width={24} 
-                        height={24} 
+                        width={48} 
+                        height={48} 
                       />
                     </a>
                   </li>
@@ -190,8 +190,8 @@ const Footer = ({ footerData }: FooterProps) => {
                         <Image 
                           src="/footer/darkinsta.svg" 
                           alt="instagram logo" 
-                          width={24} 
-                          height={24} 
+                          width={48} 
+                          height={48} 
                         />
                       </a>
                     </li>
@@ -200,8 +200,8 @@ const Footer = ({ footerData }: FooterProps) => {
                         <Image 
                           src="/footer/darkyu.svg" 
                           alt="youtube logo" 
-                          width={24} 
-                          height={24} 
+                          width={48} 
+                          height={48} 
                         />
                       </a>
                     </li>
@@ -210,8 +210,8 @@ const Footer = ({ footerData }: FooterProps) => {
                         <Image 
                           src="/footer/darkfb.svg" 
                           alt="facebook logo" 
-                          width={24} 
-                          height={24} 
+                          width={48} 
+                          height={48} 
                         />
                       </a>
                     </li>
